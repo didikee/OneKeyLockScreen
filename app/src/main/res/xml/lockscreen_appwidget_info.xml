@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:initialLayout="@layout/layout_lockscreen_widget"
+                    android:minHeight="48dp"
+                    android:minWidth="48dp"
+                    android:previewImage="@mipmap/ic_launcher"
+                    android:resizeMode="none"
+    >
+
+</appwidget-provider>
