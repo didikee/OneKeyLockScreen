@@ -6,9 +6,9 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.RemoteViews;
-import android.widget.Toast;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -33,7 +33,7 @@ public class LockScreenWidget extends AppWidgetProvider {
         for (int appWidgetId : appWidgetIds) {
             idsSet.add(Integer.valueOf(appWidgetId));
         }
-        updateAllAppWidgets(context,appWidgetManager,idsSet);
+        updateAllAppWidgets(context,appWidgetManager);
 //        prtSet();
     }
 
@@ -65,10 +65,14 @@ public class LockScreenWidget extends AppWidgetProvider {
         Log.d(TAG, "OnReceive:Action: " + action);
         if (Constant.ACTION_UPDATE_ALL.equals(action)) {
             // “更新”广播
-            updateAllAppWidgets(context, AppWidgetManager.getInstance(context), idsSet);
-        } else {
+            updateAllAppWidgets(context, AppWidgetManager.getInstance(context));
+        } else if(Constant.ACTION_UPDATE_UI.equals(action)){
             // “按钮点击”广播
-            Toast.makeText(context, "应该息屏了", Toast.LENGTH_SHORT).show();
+            String name = intent.getStringExtra(Constant.KEY_NAME);
+            if (!TextUtils.isEmpty(name)){
+
+            }
+//            Toast.makeText(context, "应该息屏了", Toast.LENGTH_SHORT).show();
         }
         super.onReceive(context, intent);
     }
@@ -79,14 +83,14 @@ public class LockScreenWidget extends AppWidgetProvider {
         super.onAppWidgetOptionsChanged(context, appWidgetManager, appWidgetId, newOptions);
     }
     // 更新所有的 widget
-    private void updateAllAppWidgets(Context context, AppWidgetManager appWidgetManager, Set set) {
+    private void updateAllAppWidgets(Context context, AppWidgetManager appWidgetManager) {
 
-        Log.d(TAG, "updateAllAppWidgets(): size="+set.size());
+        Log.d(TAG, "updateAllAppWidgets(): size="+idsSet.size());
 
         // widget 的id
         int appID;
         // 迭代器，用于遍历所有保存的widget的id
-        Iterator it = set.iterator();
+        Iterator it = idsSet.iterator();
 
         while (it.hasNext()) {
             appID = ((Integer)it.next()).intValue();

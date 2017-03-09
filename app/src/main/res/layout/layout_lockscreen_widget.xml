@@ -1,39 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:id="@+id/rootView"
+<FrameLayout android:id="@+id/rootView"
               xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical"
-              android:padding="12dp"
     >
-
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:padding="4dp"
-        android:layout_gravity="center_horizontal"
-        android:contentDescription="锁屏icon"
-        android:minHeight="48dp"
-        android:minWidth="48dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/fish_96px"
-        />
-
-    <TextView
-        android:id="@+id/text"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="-1dp"
-        android:ellipsize="end"
-        android:lines="1"
-        android:text="一键锁屏"
-        android:textColor="@android:color/white"
-        android:textSize="14.5sp"
-        />
+        android:layout_gravity="center"
+        >
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="锁屏icon"
+            android:maxWidth="48dp"
+            android:maxHeight="48dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/fish2"
+            />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/icon"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="锁屏"
+            android:textColor="#41484A"
+            android:textSize="12sp"
+            />
+    </RelativeLayout>
+
+
+
+</FrameLayout>
 <!--
 <TextView android:id="@+id/rootView"
           xmlns:android="http://schemas.android.com/apk/res/android"

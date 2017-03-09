@@ -30,10 +30,8 @@ public class LockScreen extends Activity{
         mylock();
 
         // 锁屏之后立即kill掉我们的Activity，避免资源浪费
-//        Process.killProcess(Process.myPid());
         finish();
 
-//        setContentView(R.layout.main_activity);
     }
 
     // 执行锁屏逻辑

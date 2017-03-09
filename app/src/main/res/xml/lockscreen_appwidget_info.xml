@@ -3,8 +3,9 @@
                     android:initialLayout="@layout/layout_lockscreen_widget"
                     android:minHeight="48dp"
                     android:minWidth="48dp"
-                    android:previewImage="@mipmap/ic_launcher"
+                    android:previewImage="@drawable/fish2"
                     android:resizeMode="none"
+
     >
 
 </appwidget-provider>
